@@ -17,15 +17,13 @@ const slides = [
 	}
 ];
 
+
 // permet de gérer les images du slider 
 const bannerImg = document.querySelector('.banner-img');
 const attribut = bannerImg.getAttribute('src');
-// bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[0].image}`);
-
 
 // permet de gerer le texte du slider 
 const bannerText = document.querySelector('#banner p');
-// bannerText.innerHTML = slides[0].tagLine
 
 
 const suivant = document.querySelector('.arrow_right');
@@ -34,7 +32,7 @@ const precedent = document.querySelector('.arrow_left');
 
 let index = 0;
 
-
+// 
 function slideSuivant() {
 	bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[index].image}`);
 	bannerText.innerHTML = slides[index].tagLine;
@@ -48,5 +46,26 @@ function slideSuivant() {
 
 suivant.addEventListener('click', slideSuivant)
 
+function slidePrecedente() {
+	bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[index].image}`);
+	bannerText.innerHTML = slides[index].tagLine;
+	if(index > 0) {
+		index--;
+	} else {
+		index = slides.length - 1;
+	}
+	console.log(index)
+}
+precedent.addEventListener('click', slidePrecedente)
 
-// slides < slides.length - 1
+
+const divPagination = document.querySelector('.dots');
+const spanDot = document.createElement('span');
+document.querySelector('.dots').appendChild(spanDot);
+spanDot.classList.add('dot');
+
+function dots() {
+
+}
+
+console.log(spanDot)
