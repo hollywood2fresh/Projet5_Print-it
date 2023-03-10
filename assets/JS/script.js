@@ -7,6 +7,104 @@ import Slider from './slider.js'
 
 
 
+/*
+
+
+
+const slides = [
+	{
+		"image":"slide1.jpg",
+		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
+	},
+	{
+		"image":"slide2.jpg",
+		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+	},
+	{
+		"image":"slide3.jpg",
+		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
+	},
+	{
+		"image":"slide4.png",
+		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
+	}
+];
+
+
+
+
+// permet de gérer les images du slider 
+const bannerImg = document.querySelector('.banner-img');
+
+// permet de gerer le texte du slider 
+const bannerText = document.querySelector('#banner p');
+
+
+const suivant = document.querySelector('.arrow_right');
+const precedent = document.querySelector('.arrow_left');
+
+
+let index = 0;
+
+
+function slideSuivant() {
+	let oldIndex = index
+	if(index < slides.length - 1) {
+		index++;
+	} else {
+		index = 0;
+	}
+	bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[index].image}`);
+	bannerText.innerHTML = slides[index].tagLine;
+	console.log(oldIndex);
+	console.log(index);
+	afficherPointSelectionne(oldIndex, index)
+};
+suivant.addEventListener('click', slideSuivant)
+
+function slidePrecedente() {
+	let oldIndex = index
+	if(index > 0) {
+		index--;
+	} else {
+		index = slides.length - 1;
+	}
+	bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[index].image}`);
+	bannerText.innerHTML = slides[index].tagLine;
+	console.log(index)
+	afficherPointSelectionne(oldIndex, index)
+}
+precedent.addEventListener('click', slidePrecedente)
+
+
+
+function afficherPointsVides() {
+	let divDots = document.querySelector('.dots')
+
+	for (let i = 0; i < slides.length; i++) {
+		let span = document.createElement('span')
+		span.classList.add('dot')
+		divDots.append(span)
+	}
+	console.log(divDots);
+}
+
+afficherPointsVides()
+
+function afficherPointSelectionne(oldIndex, index) {
+	let listSpan = document.querySelectorAll('.dot')
+	listSpan[oldIndex].classList.remove('dot_selected')
+	listSpan[index].classList.add('dot_selected')
+	console.log(listSpan)
+}
+
+afficherPointSelectionne(0,0)
+*/
+
+
+// const timer = setInterval(() => {
+// 	slideSuivant()
+// }, 2000)
 
 
 
@@ -20,31 +118,6 @@ import Slider from './slider.js'
 
 
 
-
-
-
-
-
-
-
-// const slides = [
-// 	{
-// 		"image":"slide1.jpg",
-// 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-// 	},
-// 	{
-// 		"image":"slide2.jpg",
-// 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-// 	},
-// 	{
-// 		"image":"slide3.jpg",
-// 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-// 	},
-// 	{
-// 		"image":"slide4.png",
-// 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-// 	}
-// ];
 
 
 // class Slider {
@@ -154,95 +227,7 @@ import Slider from './slider.js'
 
 
 
-// // permet de gérer les images du slider 
-// const bannerImg = document.querySelector('.banner-img');
 
-// // permet de gerer le texte du slider 
-// const bannerText = document.querySelector('#banner p');
-
-
-// const suivant = document.querySelector('.arrow_right');
-// const precedent = document.querySelector('.arrow_left');
-
-
-// let index = 0;
-
-
-// function slideSuivant() {
-// 	let oldIndex = index
-// 	if(index < slides.length - 1) {
-// 		index++;
-// 	} else {
-// 		index = 0;
-// 	}
-// 	bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[index].image}`);
-// 	bannerText.innerHTML = slides[index].tagLine;
-// 	console.log(index);
-// 	afficherPointSelectionne(oldIndex, index)
-// };
-// suivant.addEventListener('click', slideSuivant)
-
-// function slidePrecedente() {
-// 	let oldIndex = index
-// 	if(index > 0) {
-// 		index--;
-// 	} else {
-// 		index = slides.length - 1;
-// 	}
-// 	bannerImg.setAttribute('src', `./assets/images/slideshow/${slides[index].image}`);
-// 	bannerText.innerHTML = slides[index].tagLine;
-// 	console.log(index)
-// 	afficherPointSelectionne(oldIndex, index)
-// }
-// precedent.addEventListener('click', slidePrecedente)
-
-
-
-// function afficherPointsVides() {
-// 	let divDots = document.querySelector('.dots')
-
-// 	for (let i = 0; i < slides.length; i++) {
-// 		let span = document.createElement('span')
-// 		span.classList.add('dot')
-// 		divDots.append(span)
-// 	}
-// 	console.log(divDots);
-// }
-
-// afficherPointsVides()
-
-// function afficherPointSelectionne(oldIndex, index) {
-// 	let listSpan = document.querySelectorAll('.dot')
-// 	listSpan[oldIndex].classList.remove('dot_selected')
-// 	listSpan[index].classList.add('dot_selected')
-// 	console.log(listSpan)
-// }
-
-// afficherPointSelectionne(0,0)
-
-
-
-// const timer = setInterval(() => {
-// 	slideSuivant()
-// }, 2000)
-
-
-// for (let i = 0; i < slides.length; i++) {
-//     suivant[i].addEventListener('click', () => {
-//         clearInterval(interval);
-//         slide(i);
-//         imgId = i + 1;
-//         interval = setInterval (autoSlide, 4000);
-//     })
-// }
-
-
-// function reasetIntervalAutomatique() {
-// 	if(index + 1) {
-// 		clearInterval(timer)
-// 	}
-
-// }
 
 
 

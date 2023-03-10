@@ -20,7 +20,7 @@ export default class Slider {
 				"image":"slide4.png",
 				"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 			}
-		];
+		]
 		this.bannerPicture = document.querySelector(".banner-img")
 		this.bannerText = document.querySelector("#banner p")
 		this.addEventListenerNext()
@@ -46,7 +46,11 @@ export default class Slider {
 		this.bannerPicture.setAttribute('src', `./assets/images/slideshow/${this.slides[this.index].image}`)
 		this.bannerText.innerHTML = this.slides[this.index].tagLine
 		this.showSelectDot(this.oldIndex, this.index)
-		console.log(this.index)
+        if(this.index >= 1) {
+            this.oldIndex++
+        } else {
+            this.oldIndex = 0
+        }
 	}
 
 	addEventListenerPrevious() {
@@ -66,7 +70,11 @@ export default class Slider {
 		this.bannerPicture.setAttribute('src', `./assets/images/slideshow/${this.slides[this.index].image}`);
 		this.bannerText.innerHTML = this.slides[this.index].tagLine;
 		this.showSelectDot(this.oldIndex, this.index)
-		console.log(this.index)
+        if(this.index > 2){
+            this.oldIndex = 3
+        }else {
+            this.oldIndex--
+        }
 	}
 
 	showEmptyDots() {
@@ -77,18 +85,14 @@ export default class Slider {
 			span.classList.add('dot')
 			divDots.append(span)
 		}
-		console.log(divDots);
 	}
 
-	showSelectDot(oldIndex, index) {
+	showSelectDot() {
 		let listSpan = document.querySelectorAll('.dot')
-		listSpan[oldIndex].classList.remove('dot_selected')
-		listSpan[index].classList.add('dot_selected')
-		console.log(listSpan)
+		listSpan[this.oldIndex].classList.remove('dot_selected')
+		listSpan[this.index].classList.add('dot_selected')
 	}
 
 }
 
 let slider = new Slider()
-
-console.log(slider)
