@@ -92,7 +92,6 @@ export default class Slider {
 		listSpan[this.oldIndex].classList.remove('dot_selected')
 		listSpan[this.index].classList.add('dot_selected')
 	}
-
 }
 
 let slider = new Slider()
