@@ -26,7 +26,7 @@ export default class Slider {
 		this.addEventListenerNext()
 		this.addEventListenerPrevious()
 		this.showEmptyDots()
-		this.showSelectDot(0,0)
+		this.showSelectDot()
 	}
 
 	addEventListenerNext() {
@@ -45,7 +45,7 @@ export default class Slider {
 		}
 		this.bannerPicture.setAttribute('src', `./assets/images/slideshow/${this.slides[this.index].image}`)
 		this.bannerText.innerHTML = this.slides[this.index].tagLine
-		this.showSelectDot(this.oldIndex, this.index)
+		this.showSelectDot()
         if(this.index >= 1) {
             this.oldIndex++
         } else {
@@ -69,7 +69,7 @@ export default class Slider {
 		}
 		this.bannerPicture.setAttribute('src', `./assets/images/slideshow/${this.slides[this.index].image}`);
 		this.bannerText.innerHTML = this.slides[this.index].tagLine;
-		this.showSelectDot(this.oldIndex, this.index)
+		this.showSelectDot()
         if(this.index > 2){
             this.oldIndex = 3
         }else {
